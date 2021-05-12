@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+     
+        if(needle == "")
+            return 0;
+			
+        int result;
+        
+        auto iter = std::search(haystack.begin(), haystack.end(), needle.begin(), needle.end());
+        if(iter == haystack.end())
+            return -1;
+        
+        result = std::distance(haystack.begin(), iter);
+        return result;
+    }
+};
