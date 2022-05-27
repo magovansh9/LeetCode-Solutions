@@ -53,3 +53,12 @@ public:
 // Optimal Solution
 // Sort the array and return the element at n/2 index. As it is the majority element, it will always be at the n/2 index regardless
 // of whether the size of the array is odd or even
+class Solution
+{
+public:
+    int majorityElement(vector<int> &nums)
+    {
+        sort(nums.begin(), nums.end());
+        return nums[(nums.size()) / 2];
+    }
+};
