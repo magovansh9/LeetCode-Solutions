@@ -10,8 +10,7 @@ class Solution {
 public:
     bool hasCycle(ListNode *head) {
         
-        // Using Floyd's cycle finding algorithm - the pointers are bound to meet
-        
+        // use Floyd's cycle detection
         if(head==NULL){
             return false;
         }
@@ -19,16 +18,17 @@ public:
         ListNode* fast= head;
         ListNode* slow= head;
         
-        while(fast->next!=NULL && fast->next->next!=NULL){
-            fast=fast->next->next;
+        while( fast->next!=NULL && fast->next->next!=NULL){
+         
             slow=slow->next;
+            fast=fast->next->next;
             
             if(fast==slow){
                 return true;
             }
+
         }
         
         return false;
-       
     }
 };
