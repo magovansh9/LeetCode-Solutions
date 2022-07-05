@@ -12,33 +12,23 @@ class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
         
-        if(head==NULL)
+        if(head==NULL){
             return NULL;
-        
-        ListNode* head2= new ListNode();
-        head2->val= head->val;
-        
-        ListNode* traverse= new ListNode();
-        traverse= head->next;
-        while(traverse!= NULL){
-            push_front(&head2, traverse->val);
-            traverse=traverse->next;
-        }
-            
-        return head2;
-    }
-    
-    void push_front(ListNode** head, int val){
-        
-        if(*head==NULL){
-            return;
         }
         
-        ListNode* node= new ListNode();
-        node->val=val;    
+        ListNode* h2= new ListNode();
+        h2->val=head->val;
+        ListNode* temp= head->next;
         
-        node->next= *head;
-        *head=node;
-     
+        while(temp!=NULL){
+            ListNode* newNode= new ListNode();
+            newNode->val= temp->val;
+            newNode->next=h2;
+            h2=newNode;
+            temp=temp->next;
+        }
+        
+        return h2;
+        
     }
 };
