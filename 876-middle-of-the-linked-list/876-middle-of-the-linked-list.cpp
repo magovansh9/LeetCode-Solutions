@@ -11,21 +11,18 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        ListNode* temp=head;
-        int count{0}, index{0};
-        while(temp!=NULL){
-            temp=temp->next;
-            count++;
+        int count{0};
+       ListNode* slow= head;
+        ListNode* fast= head;
+        
+        while(fast && fast->next){
+            slow=slow->next;
+            fast=fast->next->next;
         }
         
-      index= (count/2)+1;
-      temp=head;
-      count=0;
-      while(count!=index-1){
-          temp=temp->next;
-          count++;
-      }
+        std::cout<<count<<std::endl;
         
-    return temp;
+        return slow;
+          
     }
 };
