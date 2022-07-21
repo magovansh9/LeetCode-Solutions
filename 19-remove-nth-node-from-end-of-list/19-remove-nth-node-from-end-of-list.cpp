@@ -17,13 +17,12 @@ public:
         // the first pointer will be at the K-N+1th node, this is the node you want to delete
         // use a prev pointer to keep track of the previous node
         
-        ListNode* p1=head;
         ListNode* p2=head;
         ListNode* prev=head;
         
-        for(int i=0; i<n; i++){
-            if(p2->next==NULL){
-                if(i==n-1){
+        for(int i=0; i<n+1; i++){
+            if(p2==NULL){
+                if(i==n){
                     head=head->next;
                 }
                 return head;
@@ -32,12 +31,11 @@ public:
         }
         
         while(p2){
-            prev=p1;
+            prev=prev->next;
             p2=p2->next;
-            p1=p1->next;
         }
         
-        prev->next=p1->next;
+        prev->next=prev->next->next;
         return head;
     }
 };
