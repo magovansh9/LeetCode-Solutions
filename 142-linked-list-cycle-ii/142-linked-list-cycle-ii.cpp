@@ -13,11 +13,9 @@ public:
         
       // using hashing
         unordered_set<ListNode*> uset;
+        ListNode* curr=head;
         
-        ListNode* curr= head;
-        
-        while(curr!=NULL){
-            
+        while(curr){
             if(uset.find(curr)==uset.end()){
                 uset.insert(curr);
             }
@@ -25,11 +23,9 @@ public:
                 return curr;
             }
             
-            curr=curr->next; 
+            curr=curr->next;
         }
         
         return NULL;
-        
- 
     }
 };
