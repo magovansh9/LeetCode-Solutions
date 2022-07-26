@@ -16,23 +16,17 @@ public:
             return NULL;
         }
         
-        ListNode* curr=head;
-        ListNode* prev=head;
-        int numNodes{0};
-        while(curr){
-            curr=curr->next;
-            numNodes++;
+        ListNode* slow=head;
+        ListNode* fast=head;
+        ListNode* prev=slow;
+        
+        while(fast && fast->next){
+            prev=slow;
+            slow=slow->next;
+            fast=fast->next->next;
         }
         
-        int i{0};
-        curr=head;
-        while(i< numNodes/2){
-            prev=curr;
-            curr=curr->next;
-            i++;
-        }
-        
-        prev->next=curr->next;
+        prev->next=slow->next;
         
         return head;
         
