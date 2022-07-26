@@ -10,25 +10,22 @@ class Solution {
 public:
     bool hasCycle(ListNode *head) {
         
-        // use Floyd's cycle detection
-        if(head==NULL){
+        if(head==NULL)
             return false;
-        }
         
-        ListNode* fast= head;
-        ListNode* slow= head;
+        ListNode* slow=head;
+        ListNode* fast=head;
         
-        while( fast->next!=NULL && fast->next->next!=NULL){
-         
+        while(fast && fast->next){
             slow=slow->next;
             fast=fast->next->next;
             
-            if(fast==slow){
-                return true;
+            if(slow==fast){
+                return slow;
             }
-
         }
         
-        return false;
+        return NULL;
+        
     }
 };
