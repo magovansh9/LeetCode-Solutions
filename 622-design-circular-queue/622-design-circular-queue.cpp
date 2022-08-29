@@ -4,19 +4,18 @@ public:
     int head;
     int tail;
     int size;
-    
     MyCircularQueue(int k) {
         data.resize(k);
+        size=k;
         head=-1;
         tail=-1;
-        size=k;
     }
     
     bool enQueue(int value) {
         if(isFull()){
             return false;
         }
-        if(isEmpty()){
+        if(head==-1){
             head=0;
         }
         tail=(tail+1)%size;
@@ -33,6 +32,7 @@ public:
             tail=-1;
             return true;
         }
+      
         head=(head+1)%size;
         return true;
     }
