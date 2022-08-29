@@ -2,13 +2,8 @@ class Solution {
 public:
     int evalRPN(vector<string>& tokens) {
         stack<string> stk;
-        unordered_map<string,string> map;
-        map.insert(make_pair("+","+"));
-         map.insert(make_pair("-","-"));
-         map.insert(make_pair("*","*"));
-         map.insert(make_pair("/","/"));
         for(int i=0;i<tokens.size();i++){
-            if(map.find(tokens[i])!=map.end())
+            if(tokens[i]=="+" || tokens[i]=="-" || tokens[i]=="*" || tokens[i]=="/")
             {
                 int b=stoi(stk.top());
                 stk.pop();
