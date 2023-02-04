@@ -1,12 +1,14 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        res=[1]*(len(nums))
-        pre,post=1,1
+        prefix,suffix=[1]*len(nums),[1]*len(nums)
+        curr=1
         for i in range(1,len(nums)):
-            pre=pre*nums[i-1]
-            res[i]=pre
+            curr*=nums[i-1]
+            prefix[i]=curr
+        curr=1
         for i in reversed(range(0,len(nums)-1)):
-            post=post*nums[i+1]
-            res[i]=res[i]*post
-        return res
-            
+            curr*=nums[i+1]
+            suffix[i]=curr
+        for i in range(len(nums)):
+            nums[i]=suffix[i]*prefix[i]
+        return nums
