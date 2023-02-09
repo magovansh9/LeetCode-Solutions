@@ -3,9 +3,9 @@ class Solution:
         maxArea=0
         l,r=0,len(height)-1
         while(l<r):
-            bdth=r-l
-            hght=min(height[r],height[l])
-            maxArea=max(maxArea,bdth*hght)
+            b=r-l
+            h=min(height[l],height[r])
+            maxArea=max(maxArea,b*h)
             if(height[l]<height[r]):
                 l+=1
             elif(height[r]<height[l]):
