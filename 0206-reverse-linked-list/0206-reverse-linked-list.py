@@ -11,5 +11,7 @@ class Solution:
             curr.next=prev
             prev=curr
             curr=nextNode
-        head=prev
-        return head
+        return prev
+            
+            
+        
