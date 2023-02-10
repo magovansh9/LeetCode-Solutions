@@ -7,11 +7,12 @@ class Solution:
             if bkt in hashmap:
                 stack.append(bkt)
             else:
-                if stack != []:
+                if stack:
                     openBkt=stack.pop()
-                    if(hashmap[openBkt]!=bkt):
+                    if hashmap[openBkt]!=bkt:
                         return False
                 else:
                     return False
-        return not stack
+        return stack==[]
+                    
         
