@@ -1,15 +1,6 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s)!=len(t):
+        if(len(s)!=len(t)):
             return False
-        
-        counter=[0]*26
-        for l in s:
-            counter[ord('a')-ord(l)]+=1
-        for l in t:
-            counter[ord('a')-ord(l)]-=1
-        for num in counter:
-            if num!=0:
-                return False
-        return True
+        return sorted(s)==sorted(t)
         
