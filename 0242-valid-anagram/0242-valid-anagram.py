@@ -2,12 +2,12 @@ class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s)!=len(t):
             return False
-        counter=[0]*26
+        counter=defaultdict(int)
         for l in s:
-            counter[ord(l)-ord('a')]+=1
+            counter[l]+=1
         for l in t:
-            counter[ord(l)-ord('a')]-=1
-        for num in counter:
+            counter[l]-=1
+        for num in counter.values():
             if num!=0:
                 return False
         return True
