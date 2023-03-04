@@ -1,10 +1,9 @@
 class Solution:
-    def isPalindrome(self,s:str)-> bool:
-        alnumStr=("".join(c for c in s if c.isalnum())).lower()
-        low,high=0,len(alnumStr)-1
-        while(low<high):
-            if alnumStr[low]!=alnumStr[high]:
+    def isPalindrome(self, s: str) -> bool:
+        tolowerS=''.join(c for c in s if c.isalnum()).lower()
+        for i in range(0,len(tolowerS)//2):
+            if tolowerS[i]!=tolowerS[len(tolowerS)-i-1]:
                 return False
-            low+=1
-            high-=1
         return True
+
+        
