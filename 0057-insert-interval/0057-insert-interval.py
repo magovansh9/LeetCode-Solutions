@@ -7,13 +7,13 @@ class Solution:
             if newInterval[1]<intervals[i][0]:
                 res.append(newInterval)
                 return res + intervals[i:]
-            # if new interval is greater than current interval
+            # if newInterval is greater than current interval
             elif newInterval[0]>intervals[i][1]:
                 res.append(intervals[i])
-            # if new intervals needs to merge
+            # if newInterval overlaps
             else:
-                newInterval= [min(newInterval[0],intervals[i][0]),max(newInterval[1],intervals[i][1])]
-            
+                newInterval = [min(newInterval[0],intervals[i][0]),max(newInterval[1],intervals[i][1])]
+        
         res.append(newInterval)
         
         return res
