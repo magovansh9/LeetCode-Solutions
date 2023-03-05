@@ -16,6 +16,7 @@ class Solution:
             levels.append([])
             for i in range(len(queue)):
                 curr=queue.popleft()
+                
                 levels[level].append(curr.val)
                 
                 if curr.left:
