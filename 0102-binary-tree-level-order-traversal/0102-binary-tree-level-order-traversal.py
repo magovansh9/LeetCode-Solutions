@@ -9,22 +9,19 @@ class Solution:
         levels=[]
         if root is None:
             return levels
-        queue=collections.deque([root])
+        q=deque([root])
         
         level=0
-        while queue:
+        while q:
             levels.append([])
-            for i in range(len(queue)):
-                curr=queue.popleft()
+            for i in range(len(q)):
+                curr=q.popleft()
                 
                 levels[level].append(curr.val)
                 
                 if curr.left:
-                    queue.append(curr.left)
+                    q.append(curr.left)
                 if curr.right:
-                    queue.append(curr.right)
+                    q.append(curr.right)
             level+=1
         return levels
-            
-            
-        
