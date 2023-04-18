@@ -8,31 +8,28 @@ class Solution:
         """
         Do not return anything, modify head in-place instead.
         """
-        # find the middle node
-        slow=fast=head
-        while fast and fast.next:
-            slow=slow.next
-            fast=fast.next.next
-            
-        # reverse the second half of the list
-        curr,prev=slow,None
+        if not head:
+            return None
+        
+        stack=[]
+        size=0
+        curr=head
         while curr:
-            currNext=curr.next
-            curr.next=prev
-            prev=curr
-            curr=currNext
+            size+=1
+            stack.append(curr)
+            curr=curr.next
         
-        # merge the two linked lists
-        first,second=head,prev
-        while second.next:
-            temp=first.next
-            first.next=second
-            first=temp
+        i=0
+        curr=head
+        while i<size//2:
+            nextNode=stack.pop()
+            temp=curr.next
             
-            temp=second.next
-            second.next=first
-            second=temp
-        return head
-        
-        
+            curr.next=nextNode
+            nextNode.next=temp
             
+            curr=temp
+            i+=1
+        curr.next=None
+        
+        
