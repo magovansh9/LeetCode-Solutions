@@ -30,6 +30,8 @@ class Solution:
             
             curr=temp
             i+=1
+            
         curr.next=None
         
+            
         
